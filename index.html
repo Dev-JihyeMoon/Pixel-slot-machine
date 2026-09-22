@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pixel Slot Machine</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="machine" id="machine">
+    <div class="win-flash" id="winFlash"></div>
+
+    <!-- 상단 배너 -->
+    <div class="top-bar">
+      <span class="jackpot-text">JACKPOT</span>
+    </div>
+
+    <!-- LED 스트립 -->
+    <div class="led-strip" id="ledStrip"></div>
+
+    <!-- 릴 영역 -->
+    <div class="reel-area">
+      <div class="center-line"></div>
+      <div class="reels-row">
+        <div class="reel-wrapper" id="rw0"><div class="reel" id="rs0"></div></div>
+        <div class="reel-divider"><span></span><span></span><span></span><span></span></div>
+        <div class="reel-wrapper" id="rw1"><div class="reel" id="rs1"></div></div>
+        <div class="reel-divider"><span></span><span></span><span></span><span></span></div>
+        <div class="reel-wrapper" id="rw2"><div class="reel" id="rs2"></div></div>
+      </div>
+    </div>
+
+    <!-- 컨트롤 -->
+    <div class="controls-area">
+      <div class="btn-deco"></div>
+      <button class="spin-btn" id="spinBtn">▶ SPIN</button>
+      <div class="btn-deco"></div>
+    </div>
+
+    <!-- 결과 -->
+    <div class="result-bar">
+      <div class="result-text" id="resultText">PRESS SPIN!</div>
+    </div>
+
+    <div class="bottom-trim"></div>
+  </div>
+
+  <script type="module" src="js/game.js"></script>
+</body>
+</html>
