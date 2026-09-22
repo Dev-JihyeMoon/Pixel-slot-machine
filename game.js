@@ -42,6 +42,22 @@ const $btn    = () => document.getElementById('spinBtn');
 const $result = () => document.getElementById('resultText');
 const $portfolio = () => document.getElementById('portfolioLink');
 
+function createPortfolioRecommendation() {
+  const container = document.createElement('div');
+  const link = document.createElement('a');
+
+  container.className = 'portfolio-recommendation';
+  container.id = 'portfolioLink';
+  link.href = 'https://dev-jihyemoon.github.io/jihye-portfolio/';
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  link.setAttribute('aria-label', "Jihye's portfolio");
+  link.textContent = "Jihye's portfolio => https://dev-jihyemoon.github.io/jihye-portfolio/";
+
+  container.append(link);
+  document.body.append(container);
+}
+
 function showResult() {
   const res = $result();
 
@@ -90,6 +106,7 @@ function spin() {
 /* ── 초기화 ── */
 
 function init() {
+  createPortfolioRecommendation();
   initLEDs();
   measureItemHeight();
   buildAllStrips();
