@@ -41,35 +41,31 @@ function isWin() {
 const $btn    = () => document.getElementById('spinBtn');
 const $result = () => document.getElementById('resultText');
 
-function createPortfolioRecommendation() {
-  const existing = document.getElementById('portfolioLink');
-  if (existing) return existing;
-
-  const container = document.createElement('div');
+function showPortfolioRecommendation() {
+  const container = document.getElementById('portfolioLink');
   const link = document.createElement('a');
 
-  container.className = 'portfolio-recommendation';
-  container.id = 'portfolioLink';
   link.href = 'https://dev-jihyemoon.github.io/jihye-portfolio/';
   link.target = '_blank';
   link.rel = 'noopener noreferrer';
   link.setAttribute('aria-label', "Jihye's portfolio");
   link.textContent = "Jihye's portfolio => https://dev-jihyemoon.github.io/jihye-portfolio/";
 
-  container.append(link);
-  document.body.append(container);
-  return container;
+  container.replaceChildren(link);
+  container.classList.add('visible');
 }
 
 function hidePortfolioRecommendation() {
-  document.getElementById('portfolioLink')?.classList.remove('visible');
+  const container = document.getElementById('portfolioLink');
+  container.classList.remove('visible');
+  container.replaceChildren();
 }
 
 function showResult() {
   const res = $result();
 
   if (isWin()) {
-    createPortfolioRecommendation().classList.add('visible');
+    showPortfolioRecommendation();
     res.textContent = `★ JACKPOT! ${SYMBOLS.NAMES[results[0]]}! ★`;
     res.className   = 'result-text win';
     playFanfare();
@@ -113,7 +109,6 @@ function spin() {
 /* ── 초기화 ── */
 
 function init() {
-  createPortfolioRecommendation();
   initLEDs();
   measureItemHeight();
   buildAllStrips();
