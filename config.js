@@ -4,7 +4,7 @@
  */
 
 export const GAME = Object.freeze({
-  WIN_RATE:    0.65,
+  WIN_RATE:    0.55,
   REEL_COUNT:  3,
   REEL_ITEMS:  35,
   LED_COUNT:   22,

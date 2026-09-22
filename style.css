@@ -90,6 +90,35 @@ body {
   text-shadow: 0 0 8px #ffa500, 0 2px 0 #b8860b;
 }
 
+.portfolio-recommendation {
+  display: none;
+  position: fixed;
+  top: max(72px, 15vh, env(safe-area-inset-top, 0px));
+  left: 50%;
+  z-index: 20;
+  width: min(92vw, 580px);
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.portfolio-recommendation.visible {
+  display: block;
+}
+
+.portfolio-recommendation a {
+  color: #ff7a18;
+  font-size: clamp(5px, 1.35vw, 8px);
+  line-height: 1.6;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+  text-shadow: 0 0 5px #ff4500;
+}
+
+.portfolio-recommendation a:hover {
+  color: #ffd700;
+}
+
 
 /* ═══════════════════════════════════
    4. LED 스트립

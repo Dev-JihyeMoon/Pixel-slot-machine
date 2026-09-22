@@ -40,11 +40,13 @@ function isWin() {
 
 const $btn    = () => document.getElementById('spinBtn');
 const $result = () => document.getElementById('resultText');
+const $portfolio = () => document.getElementById('portfolioLink');
 
 function showResult() {
   const res = $result();
 
   if (isWin()) {
+    $portfolio().classList.add('visible');
     res.textContent = `★ JACKPOT! ${SYMBOLS.NAMES[results[0]]}! ★`;
     res.className   = 'result-text win';
     playFanfare();
@@ -52,6 +54,7 @@ function showResult() {
     stopLEDs(true);
     flashWin();
   } else {
+    $portfolio().classList.remove('visible');
     const emoji = results.map((i) => SYMBOLS.EMOJI[i]).join(' ');
     res.textContent = `${emoji}  TRY AGAIN`;
     res.className   = 'result-text';
@@ -68,6 +71,7 @@ function spin() {
   $btn().disabled      = true;
   $result().textContent = '';
   $result().className   = 'result-text';
+  $portfolio().classList.remove('visible');
 
   startLEDs();
   pickResults();
